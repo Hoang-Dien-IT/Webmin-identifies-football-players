@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="shortcut icon" href="../static/logo.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        nav {
+            background-color: #2980b9;
+            border-radius: 0 0 8px 8px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li.active a {
+            background-color: #1f618d;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            display: block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+        label:hover {
+            background-color: #2980b9;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        h1.main{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        p {
+            color: #666;
+        }
+                .uploaded-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        footer {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 8px 8px;
+        }
+
+        .container_1 {
+            background-image: url('../static/background.jpg');
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-content .about,
+        .footer-content .links,
+        .footer-content .contact {
+            flex: 1 1 30%;
+            margin-right: 20px;
+        }
+
+        .footer-content h2 {
+            color: #fff;
+        }
+
+        .footer-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #777;
+            padding-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-bottom .socials {
+            float: right;
+        }
+
+        .socials a {
+            color: #fff;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .links {
+            margin-bottom: 30px;
+        }
+
+        .links h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .links ul li {
+            margin-bottom: 10px;
+        }
+
+        .links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links ul li a:hover {
+            color: #fff;
+        }
+        footer p{
+            color: #ffffff;
+        }
+        p.main {
+            text-align: center;
+        }
+        .maining {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        .about p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .about p a:hover {
+            color: #e53636;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nhận Diện Cầu Thủ Bóng Đá</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+            <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+            <li class="active"><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+            <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <h1 class="main">Giới Thiệu Về Trang Web Nhận Dạng Cầu Thủ Bóng Đá</h1>
+            <p>Chào mừng bạn đến với trang web của chúng tôi nhằm giúp bạn xác định cầu thủ bóng đá một cách dễ dàng! Cho dù bạn là người hâm mộ muốn biết thêm về các cầu thủ yêu thích của mình hay một huấn luyện viên đang tìm kiếm thông tin chi tiết, nền tảng của chúng tôi luôn sẵn sàng hỗ trợ bạn.</p>
+            <p>Chúng tôi sử dụng công nghệ tiên tiến để phân tích hình ảnh và cung cấp thông tin chi tiết về các cầu thủ có trong đó. Mục tiêu của chúng tôi là làm cho việc nhận dạng người chơi trở nên liền mạch và mang tính thông tin.</p>
+            <h1 class="main">Cách Sử Nhận Dạng Và Cung Cấp Thông Tin Cầu Thủ</h1>
+            <p>Bước 1: Nếu bạn đang ở trang chủ, hãy nhấn vào nút "Bắt đầu" hoặc trên thanh điều hướng, bạn có thể nhấn vào "Dịch vụ".</p>
+            <img class="maining" src="../static/about_1.png" alt="">
+            <p>Bước 2: Ở đây, chúng ta nhấn vào nút chọn ảnh và chọn ảnh cần nhận diện.</p>
+            <img class="maining" src="../static/about_2.png" alt="">
+            <p>Bước 3: Sau khi đã chọn được ảnh, nhấn vào nút "Bắt đầu nhận diện", sau đó trang web sẽ xuất thông tin về cầu thủ trong ảnh cho bạn (bao gồm ảnh và thông tin).</p>
+            <img class="maining" src="../static/about_3.png" alt="">
+            <p>Bước 4: Sau khi nhận được kết quả, bạn có thể nhấn nút "Nhận diện cầu thủ khác" để tiếp tục.</p>
+            <img class="maining" src="../static/about_4.png" alt="">
+            <h1 class="main">Các Cầu Thủ Web Đã Được Huấn Luyện Và Nhận Dạng Được</h1>
+            <p class="main">
+                {% for player_id, player_info in player_name.items() %}
+                    {% set player_name = player_info.split('\n')[0].split(': ')[1] %}
+                    {{ player_id }}. {{ player_name }}<br>
+                {% endfor %}
+            </p>
+            <h1 class="main">Cảm Ơn!</h1>
+            <p>Cảm ơn bạn đã lựa chọn dịch vụ của chúng tôi. Chúng tôi rất vui được phục vụ bạn. Hãy tiếp tục khám phá và tìm hiểu thêm về các cầu thủ bóng đá!</p>
+            <h1 class="main">Xin lưu ý: </h1>
+            <p>Rất tiếc, hiện tại trang web chưa thể nhận diện các cầu thủ một cách chính xác trong mọi tình huống. Chúng tôi chỉ hỗ trợ nhận diện trong một phạm vi nhất định và không sử dụng được chế độ camera.</p>
+        </div>
+    </main>
+   <footer>
+         <div class="container_1">
+            <div class="footer-content">
+                <div class="about">
+                    <h2>Tóm Tắt Web</h2>
+                    <p>Đây là một trang web nhận diện cầu thủ bóng đá, trang web có thể nhận diện gồm 60 cầu thủ chi tiết các cầu thủ nhận diện được ở <a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a>.</p>
+                </div>
+                <div class="links">
+                    <h2>Đường Dẫn Nhanh</h2>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+                        <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+                        <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+                        <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h2>Liên Hệ Với Chúng Tôi:</h2>
+                    <p>Email: nguyenhoangdien1x@gmail.com</p>
+                    <p>Phone: 0944-779-743</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Your Website | Designed by Nguyen Hoang Dien
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" href="../static/logo.jpg">
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        nav {
+            background-color: #2980b9;
+            border-radius: 0 0 8px 8px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li.active a {
+            background-color: #1f618d;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            display: block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+        label:hover {
+            background-color: #2980b9;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #27ae60;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        h1.contact {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        p {
+            color: #666;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+                .uploaded-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        footer {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 8px 8px;
+        }
+
+        .container_1 {
+            background-image: url('../static/background.jpg');
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-content .about,
+        .footer-content .links,
+        .footer-content .contact {
+            flex: 1 1 30%;
+            margin-right: 20px;
+        }
+
+        .footer-content h2 {
+            color: #fff;
+        }
+
+        .footer-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #777;
+            padding-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-bottom .socials {
+            float: right;
+        }
+
+        .socials a {
+            color: #fff;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .links {
+            margin-bottom: 30px;
+        }
+
+        .links h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .links ul li {
+            margin-bottom: 10px;
+        }
+
+        .links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links ul li a:hover {
+            color: #fff;
+        }
+        footer p{
+            color: #ffffff;
+        }
+
+        .about p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .about p a:hover {
+            color: #e53636;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nhận Diện Cầu Thủ Bóng Đá</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+            <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+            <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+            <li class="active"><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <h1 class="contact">Liên Hệ Với Chúng tôi</h1>
+            <p>Nếu bạn có bất kỳ câu hỏi, phản hồi hoặc thắc mắc nào, vui lòng liên hệ với chúng tôi. Chúng tôi đang ở đây để giúp bạn!</p>
+            <ul>
+                <li>Email: nguyenhoangdien1x@gmail.com</li>
+                <li>Phone: 0944779743</li>
+                <li>Address: 96, Đường Trần Vĩnh Kiết</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+         <div class="container_1">
+            <div class="footer-content">
+                <div class="about">
+                    <h2>Tóm Tắt Web</h2>
+                    <p>Đây là một trang web nhận diện cầu thủ bóng đá, trang web có thể nhận diện gồm 60 cầu thủ chi tiết các cầu thủ nhận diện được ở <a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a>.</p>
+                </div>
+                <div class="links">
+                    <h2>Đường Dẫn Nhanh</h2>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+                        <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+                        <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+                        <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h2>Liên Hệ Với Chúng Tôi:</h2>
+                    <p>Email: nguyenhoangdien1x@gmail.com</p>
+                    <p>Phone: 0944-779-743</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Your Website | Designed by Nguyen Hoang Dien
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Information</title>
+    <link rel="shortcut icon" href="../static/logo.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8e8e8;
+            background-image: url('/background_body.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        nav {
+            background-color: #2980b9;
+            border-radius: 0 0 8px 8px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li.active a {
+            background-color: #1f618d;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1.info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .player-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .player-info::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .player-image {
+            float: right;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+        .player-image img {
+            max-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .recognize-another-btn {
+            text-align: center;
+        }
+        .recognize-another-btn button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .recognize-another-btn button:hover {
+            background-color: #2980b9;
+        }
+                .uploaded-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        footer {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 8px 8px;
+        }
+
+        .container_1 {
+            background-image: url('../static/background.jpg');
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-content .about,
+        .footer-content .links,
+        .footer-content .contact {
+            flex: 1 1 30%;
+            margin-right: 20px;
+        }
+
+        .footer-content h2 {
+            color: #fff;
+        }
+
+        .footer-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #777;
+            padding-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-bottom .socials {
+            float: right;
+        }
+
+        .socials a {
+            color: #fff;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .links {
+            margin-bottom: 30px;
+        }
+
+        .links h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .links ul li {
+            margin-bottom: 10px;
+        }
+
+        .links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links ul li a:hover {
+            color: #fff;
+        }
+        p {
+            color: #333333;
+        }
+        footer p{
+            color: #ffffff;
+        }
+
+        .about p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .about p a:hover {
+            color: #e53636;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nhận Diện Cầu Thủ Bóng Đá</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+            <li class="active"><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+            <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+            <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="info">Thông Tin Cầu Thủ</h1>
+        {% for info in player_info %}
+            {% set info_list = info.split('\n') %}
+            <div class="player-info">
+                <div class="player-image">
+                    <img src="{{ url_for('static', filename='output_' + loop.index0|string + '.jpg') }}" alt="Player Image">
+                </div>
+                <div>
+                    <h2>Cầu thủ: </h2>
+                    {% set player_name_data = player_info[loop.index0] %}
+                    {% set player_name_parts = player_name_data.split('\n') %}
+                    {% set player_name = player_name_parts[0].split(':')[1].strip() %}
+                    <h2><a href="#" class="player-link">{{ player_name }}</a></h2>
+                    {% for item in player_name_parts[1:] %}
+                        <p>{{ item.strip() }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <div class="recognize-another-btn">
+            <button onclick="location.href='/'">Nhận diện hình ảnh khác</button>
+        </div>
+    </div>
+    <footer>
+         <div class="container_1">
+            <div class="footer-content">
+                <div class="about">
+                    <h2>Tóm Tắt Web</h2>
+                    <p>Đây là một trang web nhận diện cầu thủ bóng đá, trang web có thể nhận diện gồm 60 cầu thủ chi tiết các cầu thủ nhận diện được ở <a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a>.</p>
+                </div>
+                <div class="links">
+                    <h2>Đường Dẫn Nhanh</h2>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+                        <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+                        <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+                        <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h2>Liên Hệ Với Chúng Tôi:</h2>
+                    <p>Email: nguyenhoangdien1x@gmail.com</p>
+                    <p>Phone: 0944-779-743</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Your Website | Designed by Nguyen Hoang Dien
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var playerLinks = document.querySelectorAll('.player-link');
+
+        playerLinks.forEach(function(playerLink) {
+            playerLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default action of clicking on the link
+
+                var playerName = playerLink.textContent.trim();
+
+                // Create Wikipedia link based on player name
+                var playerNameForURL = playerName.replace(/\s+/g, '_');
+                var wikipediaLink = 'https://en.wikipedia.org/wiki/' + playerNameForURL;
+
+                // Open Wikipedia link in a new tab
+                window.open(wikipediaLink, '_blank');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/logo.jpg">
+    <title>Home Page</title>
+        <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8e8e8;
+            background-image: url('/background_body.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        nav {
+            background-color: #2980b9;
+            border-radius: 0 0 8px 8px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li.active a {
+            background-color: #1f618d;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        h1.info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .player-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .player-info::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .player-image {
+            float: right;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+        .player-image img {
+            max-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .recognize-another-btn {
+            text-align: center;
+        }
+        .recognize-another-btn button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .recognize-another-btn button:hover {
+            background-color: #2980b9;
+        }
+                .uploaded-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        footer {
+            background-image: url('../static/background.jpg');
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 8px 8px 8px 8px;
+        }
+
+        .container_1 {
+            background-image: url('../static/background.jpg');
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-content .about,
+        .footer-content .links,
+        .footer-content .contact {
+            flex: 1 1 30%;
+            margin-right: 20px;
+        }
+
+        .footer-content h2 {
+            color: #fff;
+        }
+
+        .footer-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #777;
+            padding-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-bottom .socials {
+            float: right;
+        }
+
+        .socials a {
+            color: #fff;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .links {
+            margin-bottom: 30px;
+        }
+
+        .links h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .links ul li {
+            margin-bottom: 10px;
+        }
+
+        .links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .links ul li a:hover {
+            color: #fff;
+        }
+        p {
+            color: #333333;
+        }
+        footer p{
+            color: #ffffff;
+        }
+        .hero {
+            background-color: #3498db;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h2 {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .hero p {
+            margin-bottom: 40px;
+        }
+        .hero .btn {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .hero .btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* CSS cho section.features */
+        .features {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .features h2 {
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .feature {
+            margin-bottom: 40px;
+        }
+        .feature h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .homeing {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .maining {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+        .about p a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .about p a:hover {
+            color: #e53636;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Nhận Diện Cầu Thủ Bóng Đá</h1>
+            <nav>
+                <ul>
+                    <li class="active"><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+                    <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+                    <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+                    <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h2>Chào mừng đến với web Nhận diện cầu thủ bóng đá</h2>
+            <p>Đây là nơi bạn có thể tìm thấy những điều tuyệt vời.</p>
+            <img class="maining" src="../static/home.jpg" alt="">
+            <a href="{{ url_for('index') }}" class="btn">Bắt đầu</a>
+        </div>
+    </section>
+    <section class="features">
+        <div class="container">
+            <h2>Các tính năng </h2>
+            <div class="feature">
+                <h3>Tính năng 1</h3>
+                <p>Nhận diện cầu thủ bằng hình ảnh.</p>
+                <img class="homeing" src="../static/home_2.png" alt="">
+            </div>
+            <div class="feature">
+                <h3>Tính năng 2</h3>
+                <p>Giao diện dễ tiếp cận với người dùng, và tốc độ phản hồi xuất ra thông tin cao</p>
+                <img class="homeing" src="../static/home_3.png" alt="">
+            </div>
+            <div class="feature">
+                <h3>Tính năng 3</h3>
+                <p>Có thể nhận diện nhiều cầu thủ trong hình cùng một lúc.</p>
+                <img class="homeing" src="../static/home_1.png" alt="">
+            </div>
+        </div>
+    </section>
+    <footer>
+         <div class="container_1">
+            <div class="footer-content">
+                <div class="about">
+                    <h2>Tóm Tắt Web</h2>
+                    <p>Đây là một trang web nhận diện cầu thủ bóng đá, trang web có thể nhận diện gồm 60 cầu thủ chi tiết các cầu thủ nhận diện được ở <a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a>.</p>
+                </div>
+                <div class="links">
+                    <h2>Đường Dẫn Nhanh</h2>
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Trang Chủ</a></li>
+                        <li><a href="{{ url_for('index') }}">Dịch Vụ</a></li>
+                        <li><a href="{{ url_for('about') }}">Thông Tin & Gợi Ý</a></li>
+                        <li><a href="{{ url_for('contact') }}">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h2>Liên Hệ Với Chúng Tôi:</h2>
+                    <p>Email: nguyenhoangdien1x@gmail.com</p>
+                    <p>Phone: 0944-779-743</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Your Website | Designed by Nguyen Hoang Dien
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
